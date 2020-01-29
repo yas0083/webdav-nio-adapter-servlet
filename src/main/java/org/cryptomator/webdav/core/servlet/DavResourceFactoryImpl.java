@@ -61,7 +61,7 @@ class DavResourceFactoryImpl implements DavResourceFactory {
 		Optional<BasicFileAttributes> attr = readBasicFileAttributes(p);
 		if (DavMethods.METHOD_PUT.equals(request.getMethod())) {
 			checkPreconditionsForPut(p, attr);
-			return createFile(locator, p, Optional.empty(), request.getDavSession());
+			return createFile(locator, p, attr, request.getDavSession());
 		} else if (DavMethods.METHOD_MKCOL.equals(request.getMethod())) {
 			checkPreconditionsForMkcol(p, attr);
 			return createFolder(locator, p, Optional.empty(), request.getDavSession());
